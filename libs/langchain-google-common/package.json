@@ -48,7 +48,7 @@
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
     "dotenv": "^16.3.1",
-    "dpdm": "^3.12.0",
+    "dpdm": "^3.14.0",
     "eslint": "^8.33.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
@@ -61,7 +61,7 @@
     "release-it": "^18.1.2",
     "rollup": "^4.5.2",
     "ts-jest": "^29.1.0",
-    "typescript": "<5.2.0",
+    "typescript": "~5.8.3",
     "zod": "^3.22.4"
   },
   "publishConfig": {
