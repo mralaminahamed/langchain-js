@@ -36,7 +36,6 @@ const chainWithHistory = new RunnableWithMessageHistory({
   runnable: chain,
   getMessageHistory: (sessionId) =>
     new ZepCloudChatMessageHistory({
-      // @ts-expect-error - Mismatched ZepClient due to resolution issues
       client: zepClient,
       sessionId,
       memoryType: "perpetual",
