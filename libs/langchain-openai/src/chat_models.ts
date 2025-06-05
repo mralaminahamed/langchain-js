@@ -811,7 +811,7 @@ function _convertOpenAIResponsesDeltaToBaseMessageChunk(
       text: chunk.delta,
       index: chunk.content_index,
     });
-  } else if (chunk.type === "response.output_text.annotation.added") {
+  } else if (chunk.type === "response.output_text_annotation.added") {
     content.push({
       type: "text",
       text: "",
@@ -2985,11 +2985,11 @@ export class ChatOpenAI<
     request: OpenAIClient.Chat.ChatCompletionCreateParamsNonStreaming,
     options?: OpenAICoreRequestOptions
     // Avoid relying importing a beta type with no official entrypoint
-  ): Promise<ReturnType<OpenAIClient["beta"]["chat"]["completions"]["parse"]>> {
+  ): Promise<ReturnType<OpenAIClient["chat"]["completions"]["parse"]>> {
     const requestOptions = this._getClientOptions(options);
     return this.caller.call(async () => {
       try {
-        const res = await this.client.beta.chat.completions.parse(
+        const res = await this.client.chat.completions.parse(
           request,
           requestOptions
         );
@@ -3001,7 +3001,9 @@ export class ChatOpenAI<
     });
   }
 
-  protected _getClientOptions(options: OpenAICoreRequestOptions | undefined) {
+  protected _getClientOptions(
+    options: OpenAICoreRequestOptions | undefined
+  ): OpenAICoreRequestOptions {
     if (!this.client) {
       const openAIEndpointConfig: OpenAIEndpointConfig = {
         baseURL: this.clientConfig.baseURL,
